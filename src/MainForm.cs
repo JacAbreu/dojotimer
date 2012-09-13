@@ -115,6 +115,17 @@ namespace DojoTimer
 			ResetButton.Focus();
         }
 
+        private PostTemplate showPostResume(){
+            var formPostResume = new PostResumeDojoForm();
+            scheme.ApplyTo(formPostResume);
+            bool topmost = this.TopMost;
+            this.TopMost = false;
+            formPostResume.ShowDialog();
+            this.TopMost = topmost;
+            return formPostResume.postTemplateInstance;
+            
+        }
+
         private Options ShowOptionsForm()
         {
             var form = new OptionsForm(options);
@@ -249,9 +260,7 @@ namespace DojoTimer
 
         private void postResume_Click(object sender, EventArgs e)
         {
-            var formPostResume = new PostResumeDojoForm();
-
-            formPostResume.ShowDialog();
+            showPostResume();
 
         }
 

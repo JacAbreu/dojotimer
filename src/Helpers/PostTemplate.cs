@@ -4,7 +4,8 @@ using System.Text;
 
 namespace DojoTimer.Helpers
 {
-    class PostTemplate{
+    public class PostTemplate
+    {
 
         String dojoLocal;
 
@@ -16,7 +17,7 @@ namespace DojoTimer.Helpers
 
         String dojoResume;
 
-        public PostTemplate(string local, string subject, string source, string dojoFacts, string dojoResume )
+        public PostTemplate(string local, string subject, string source, string dojoFacts, string dojoResume)
         {
             this.dojoFacts = dojoFacts;
             this.dojoResume = dojoResume;
@@ -31,18 +32,21 @@ namespace DojoTimer.Helpers
 
             postDojoResume.Append("Boa noite, pessoas. O dojo de hoje terminou agora :D");
 
-            if (postTemplateInstance.dojoTheme.Length > 0){
-                postDojoResume.Append("O tema do dojo de hoje foi" );
+            if (postTemplateInstance.dojoTheme.Length > 0)
+            {
+                postDojoResume.Append("O tema do dojo de hoje foi");
                 postDojoResume.Append(postTemplateInstance.dojoTheme);
             }
-            if(postTemplateInstance.dojoSource.Length > 0){
+            if (postTemplateInstance.dojoSource.Length > 0)
+            {
                 postDojoResume.Append("O problema de hoje pode ser encontrado em ");
                 postDojoResume.Append(postTemplateInstance.dojoSource);
             }
-            
+
             postDojoResume.Append(postTemplateInstance.dojoResume);
 
-            if(postTemplateInstance.dojoFacts.Length > 0 ){
+            if (postTemplateInstance.dojoFacts.Length > 0)
+            {
                 postDojoResume.Append("E como facts, tivemos: ");
                 postDojoResume.Append(postTemplateInstance.dojoFacts);
             }
@@ -51,6 +55,6 @@ namespace DojoTimer.Helpers
             return postDojoResume;
         }
 
-    
+
     }
 }

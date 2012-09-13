@@ -10,8 +10,12 @@ using DojoTimer.Helpers;
 
 namespace DojoTimer
 {
+
     public partial class PostResumeDojoForm : Form
     {
+
+        public PostTemplate postTemplateInstance;
+
         public PostResumeDojoForm()
         {
             InitializeComponent();
@@ -20,7 +24,7 @@ namespace DojoTimer
 
         private void sendResumeDojo_Click(object sender, EventArgs e)
         {
-            PostTemplate postTemplateInstance = new PostTemplate(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text);
+             postTemplateInstance = new PostTemplate(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text);
         }
 
         private void dojoResume_TextChanged(object sender, EventArgs e)
