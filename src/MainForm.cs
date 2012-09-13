@@ -247,5 +247,15 @@ namespace DojoTimer
             Process.Start(LinkButton.Text);
         }
 
+        private void postResume_Click(object sender, EventArgs e)
+        {
+            var formPostResume = new PostResumeDojoForm();
+
+            formPostResume.ShowDialog();
+
+        }
+
+       
+
     }
 }

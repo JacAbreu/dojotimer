@@ -40,6 +40,7 @@
             this.RunButton = new System.Windows.Forms.Button();
             this.LinkButton = new System.Windows.Forms.Button();
             this.TitleBar = new DojoTimer.MainTitleBar();
+            this.postResume = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // StartButton
@@ -212,6 +213,23 @@
             this.TitleBar.Size = new System.Drawing.Size(321, 28);
             this.TitleBar.TabIndex = 4;
             // 
+            // postResume
+            // 
+            this.postResume.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.postResume.BackColor = System.Drawing.Color.Transparent;
+            this.postResume.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.postResume.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.postResume.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.postResume.Font = new System.Drawing.Font("Webdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
+            this.postResume.ForeColor = System.Drawing.Color.White;
+            this.postResume.Location = new System.Drawing.Point(178, -2);
+            this.postResume.Name = "postResume";
+            this.postResume.Size = new System.Drawing.Size(30, 30);
+            this.postResume.TabIndex = 20;
+            this.postResume.Text = "";
+            this.postResume.UseVisualStyleBackColor = false;
+            this.postResume.Click += new System.EventHandler(this.postResume_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,6 +237,7 @@
             this.BackColor = System.Drawing.Color.Green;
             this.ClientSize = new System.Drawing.Size(321, 111);
             this.ControlBox = false;
+            this.Controls.Add(this.postResume);
             this.Controls.Add(this.LinkButton);
             this.Controls.Add(this.RunButton);
             this.Controls.Add(this.SettingsButton);
@@ -255,6 +274,7 @@
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.Button RunButton;
         private System.Windows.Forms.Button LinkButton;
+        private System.Windows.Forms.Button postResume;
     }
 }
 
