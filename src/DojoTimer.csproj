@@ -10,8 +10,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DojoTimer</RootNamespace>
     <AssemblyName>dojotimer</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <PlatformTarget>x86</PlatformTarget>
@@ -39,6 +40,13 @@
     <ApplicationIcon>Resources\Green.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
+    <Reference Include="IStateName">
+      <HintPath>..\xml-rpc.net.2.5.0\bin\IStateName.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -47,8 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Helpers\PostTemplate.cs" />
+    <Compile Include="Helpers\Post.cs" />
+    <Compile Include="Helpers\PostPublisher.cs" />
+    <Compile Include="Helpers\Author.cs" />
     <Compile Include="Helpers\Semaphore.cs" />
+    <Compile Include="Interfaces\IWordpress.cs" />
     <Compile Include="MainTitleBar.cs">
       <SubType>UserControl</SubType>
     </Compile>

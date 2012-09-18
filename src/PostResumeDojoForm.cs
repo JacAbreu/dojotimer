@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using DojoTimer.Helpers;
+using CookComputing.XmlRpc;
+using DojoTimer.Interfaces;
+
 
 
 namespace DojoTimer
@@ -14,22 +17,40 @@ namespace DojoTimer
     public partial class PostResumeDojoForm : Form
     {
 
-        public PostTemplate postTemplateInstance;
+        public Post postTemplateInstance;
 
         public PostResumeDojoForm()
         {
             InitializeComponent();
         }
 
-
         private void sendResumeDojo_Click(object sender, EventArgs e)
         {
-             postTemplateInstance = new PostTemplate(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text);
+
+            Post postTemplateInstance = new Post();
+
+            postTemplateInstance.WpPassord = this.password.Text;
+
+            postTemplateInstance.WpAuthorId = this.user.Text;
+
+            postTemplateInstance.contentPostTemplateToPublish(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text);
+
+            var wordpress = XmlRpcProxyGen.Create<IWordpress>();
+
+            var author = wordpress.GetAuthors(0, "jacabreu", "c0d1ngD0j0");
+
+            var returnCall = wordpress.newPost(0, "jacabreu", "c0d1ngD0j0", postTemplateInstance, true);
+
         }
 
         private void dojoResume_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+        
         }
     }
 }
