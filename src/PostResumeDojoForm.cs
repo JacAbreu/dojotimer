@@ -37,9 +37,9 @@ namespace DojoTimer
 
             var wordpress = XmlRpcProxyGen.Create<IWordpress>();
 
-            var author = wordpress.GetAuthors(0, "jacabreu", "c0d1ngD0j0");
+            var author = wordpress.GetAuthors(0, postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord);
 
-            var returnCall = wordpress.newPost(0, "jacabreu", "c0d1ngD0j0", postTemplateInstance, true);
+            var returnCall = wordpress.newPost(0, postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord, postTemplateInstance, true);
 
         }
 
