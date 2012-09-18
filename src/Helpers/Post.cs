@@ -4,6 +4,28 @@ using System.Text;
 
 namespace DojoTimer.Helpers
 {
+
+    public class CustomFields
+    {
+
+        public string Id { get; set; }
+
+        public string Key { get; set; }
+
+        public string Value { get; set; }
+    }
+
+    public class Enclosure
+    {
+
+        public string Url { get; set; }
+
+        public int Length { get; set; }
+
+        public string Type { get; set; }
+    }
+    
+    
     public class Post
     {
 
@@ -41,13 +63,22 @@ namespace DojoTimer.Helpers
 
         public string WpPostFormat { get; set; }
 
-        public bool sticky { get; set; }
+        public bool Sticky { get; set; }
+
+        public List<CustomFields> CustomFields;
+
+        public Enclosure Enclosure;
 
         public Post()
         {
             Categories = new List<string>();
 
             MtKeywords = new List<string>();
+
+            CustomFields = new List<CustomFields>();
+
+            Enclosure = new Enclosure();
+
         }
 
         public void contentPostTemplateToPublish(string local, string subject, string source, string resume, string dojoFacts)
@@ -89,4 +120,6 @@ namespace DojoTimer.Helpers
 
         }
     }
+
+   
 }
