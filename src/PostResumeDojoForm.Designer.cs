@@ -128,7 +128,6 @@
             this.resume.Name = "resume";
             this.resume.Size = new System.Drawing.Size(445, 101);
             this.resume.TabIndex = 6;
-            this.resume.TextChanged += new System.EventHandler(this.dojoResume_TextChanged);
             // 
             // dojoFacts
             // 
@@ -146,7 +145,6 @@
             this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 15;
             this.label6.Text = "User Wordpress";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // user
             // 
