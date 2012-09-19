@@ -18,7 +18,7 @@ namespace DojoTimer.Interfaces
         Post[] GetRecentPosts(int blogid, string username, string password, int numberOfPosts);
 
         [XmlRpcMethod("metaWeblog.newPost")]
-        string newPost(int blogid, string authorId, string password, Post postTemplateInstance, bool publish);
+        string newPost(string blogid, string authorId, string password, Post postTemplateInstance, bool publish);
     }
        
 }

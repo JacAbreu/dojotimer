@@ -115,14 +115,15 @@ namespace DojoTimer
 			ResetButton.Focus();
         }
 
-        private Post showPostResume(){
+        private PostResumeDojoForm showPostResume()
+        {
             var formPostResume = new PostResumeDojoForm();
             scheme.ApplyTo(formPostResume);
             bool topmost = this.TopMost;
             this.TopMost = false;
             formPostResume.ShowDialog();
             this.TopMost = topmost;
-            return formPostResume.postTemplateInstance;
+            return formPostResume;
             
         }
 

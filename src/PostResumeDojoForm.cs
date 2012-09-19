@@ -17,8 +17,6 @@ namespace DojoTimer
     public partial class PostResumeDojoForm : Form
     {
 
-        public Post postTemplateInstance;
-
         public PostResumeDojoForm()
         {
             InitializeComponent();
@@ -33,13 +31,20 @@ namespace DojoTimer
 
             postTemplateInstance.WpAuthorId = this.user.Text;
 
-            postTemplateInstance.contentPostTemplateToPublish(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text);
+            
+
+            MetaWeblogClient metaWeblogClientForPost = new MetaWeblogClient();
+
+
+            metaWeblogClientForPost.newPost(this.user.Text, this.password.Text,
+                postTemplateInstance.contentPostTemplateToPublish(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text), postTemplateInstance.Title);
+
 
             var wordpress = XmlRpcProxyGen.Create<IWordpress>();
 
             var author = wordpress.GetAuthors(0, postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord);
 
-            var returnCall = wordpress.newPost(0, postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord, postTemplateInstance, true);
+            //var returnCall = wordpress.newPost("0", postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord, postTemplateInstance, true);
 
         }
 
