@@ -95,25 +95,31 @@ namespace DojoTimer.Helpers
 
                 PostType = "post";
 
-                postDojoResume.Append("Boa noite, pessoas. O dojo de hoje terminou agora :D");
+                postDojoResume.Append("Boa noite, pessoas. O dojo de hoje terminou agora :D. ");
 
                 if (subject.Length > 0)
                 {
-                    postDojoResume.Append("O tema do dojo de hoje foi");
+                    postDojoResume.Append("O tema do dojo de hoje foi: ");
                     postDojoResume.Append(subject);
+                    postDojoResume.Append(". ");
                 }
                 if (source.Length > 0)
                 {
                     postDojoResume.Append("O problema de hoje pode ser encontrado em ");
                     postDojoResume.Append(source);
+                    postDojoResume.Append(". ");
                 }
-
-                postDojoResume.Append(resume);
+                if (resume.Length > 0)
+                {
+                    postDojoResume.Append(resume);
+                    postDojoResume.Append(". ");
+                }
 
                 if (dojoFacts.Length > 0)
                 {
                     postDojoResume.Append("E como facts, tivemos: ");
                     postDojoResume.Append(dojoFacts);
+                    postDojoResume.Append(". ");
                 }
 
                 Description = postDojoResume.ToString();
