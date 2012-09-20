@@ -20,6 +20,7 @@ namespace DojoTimer
         public PostResumeDojoForm()
         {
             InitializeComponent();
+            formTitleBar1.BindHandleTo(this);
         }
 
         private void sendResumeDojo_Click(object sender, EventArgs e)
@@ -45,6 +46,11 @@ namespace DojoTimer
             var author = wordpress.GetAuthors(0, postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord);
 
             //var returnCall = wordpress.newPost("0", postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord, postTemplateInstance, true);
+
+        }
+
+        private void formTitleBar1_Load(object sender, EventArgs e)
+        {
 
         }
 

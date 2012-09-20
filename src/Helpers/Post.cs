@@ -105,7 +105,7 @@ namespace DojoTimer.Helpers
                 }
                 if (source.Length > 0)
                 {
-                    postDojoResume.Append("O problema de hoje pode ser encontrado em ");
+                    postDojoResume.Append("O problema de hoje pode ser encontrado no/em:  ");
                     postDojoResume.Append(source);
                     postDojoResume.Append(". ");
                 }
