@@ -16,11 +16,14 @@ namespace DojoTimer
 
     public partial class PostResumeDojoForm : Form
     {
+       private Options recentOptions;
 
-        public PostResumeDojoForm()
+        public PostResumeDojoForm(Options options)
         {
             InitializeComponent();
             formTitleBar1.BindHandleTo(this);
+
+            this.recentOptions = options;
         }
 
         private void sendResumeDojo_Click(object sender, EventArgs e)
@@ -32,28 +35,26 @@ namespace DojoTimer
 
             postTemplateInstance.WpAuthorId = this.user.Text;
 
-            
-
             MetaWeblogClient metaWeblogClientForPost = new MetaWeblogClient();
 
+            var wordpress  = XmlRpcProxyGen.Create<IWordpress>();
 
-            metaWeblogClientForPost.newPost(this.user.Text, this.password.Text,
-                postTemplateInstance.contentPostTemplateToPublish(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text), postTemplateInstance.Title);
+            string urlBlog = "http://"+this.urlDestiny.Text+"/xmlrpc.php";
 
+            try
+            {
+                metaWeblogClientForPost.newPost(this.user.Text, this.password.Text,
+                    postTemplateInstance.contentPostTemplateToPublish(this.local.Text, this.subject.Text, this.source.Text, this.resume.Text, this.dojoFacts.Text, this.recentOptions), postTemplateInstance.Title, urlBlog);
 
-            var wordpress = XmlRpcProxyGen.Create<IWordpress>();
+                MessageBox.Show("Post criado com sucesso");
 
-            var author = wordpress.GetAuthors(0, postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord);
-
-            //var returnCall = wordpress.newPost("0", postTemplateInstance.WpAuthorId, postTemplateInstance.WpPassord, postTemplateInstance, true);
-
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
-        private void formTitleBar1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-      
     }
 }

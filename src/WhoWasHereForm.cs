@@ -76,6 +76,8 @@ namespace DojoTimer
                 new Thread(() =>
                 {
                     options.MarkFinish(commit, person1, person2);
+                    options.AddParticipantsDay(person1);
+                    options.AddParticipantsDay(person2);
                     options.Save();
                 }).Start();
                 this.Close();

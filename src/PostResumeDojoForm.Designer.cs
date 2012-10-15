@@ -45,6 +45,8 @@
             this.password = new System.Windows.Forms.TextBox();
             this.formTitleBar1 = new DojoTimer.FormTitleBar();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.urlDestiny = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -61,7 +63,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(247, 224);
+            this.label2.Location = new System.Drawing.Point(292, 224);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(165, 25);
             this.label2.TabIndex = 1;
@@ -82,14 +84,14 @@
             this.subject.Location = new System.Drawing.Point(31, 252);
             this.subject.Name = "subject";
             this.subject.Size = new System.Drawing.Size(181, 20);
-            this.subject.TabIndex = 4;
+            this.subject.TabIndex = 5;
             // 
             // source
             // 
-            this.source.Location = new System.Drawing.Point(251, 252);
+            this.source.Location = new System.Drawing.Point(297, 252);
             this.source.Name = "source";
             this.source.Size = new System.Drawing.Size(181, 20);
-            this.source.TabIndex = 5;
+            this.source.TabIndex = 6;
             // 
             // label4
             // 
@@ -108,10 +110,10 @@
             this.sendResumeDojo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.sendResumeDojo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.sendResumeDojo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sendResumeDojo.Location = new System.Drawing.Point(299, 575);
+            this.sendResumeDojo.Location = new System.Drawing.Point(315, 575);
             this.sendResumeDojo.Name = "sendResumeDojo";
             this.sendResumeDojo.Size = new System.Drawing.Size(113, 51);
-            this.sendResumeDojo.TabIndex = 8;
+            this.sendResumeDojo.TabIndex = 10;
             this.sendResumeDojo.Text = "Publish in dojorio.org";
             this.sendResumeDojo.UseVisualStyleBackColor = true;
             this.sendResumeDojo.Click += new System.EventHandler(this.sendResumeDojo_Click);
@@ -139,7 +141,7 @@
             this.resume.Multiline = true;
             this.resume.Name = "resume";
             this.resume.Size = new System.Drawing.Size(445, 101);
-            this.resume.TabIndex = 6;
+            this.resume.TabIndex = 7;
             // 
             // dojoFacts
             // 
@@ -147,7 +149,7 @@
             this.dojoFacts.Multiline = true;
             this.dojoFacts.Name = "dojoFacts";
             this.dojoFacts.Size = new System.Drawing.Size(445, 53);
-            this.dojoFacts.TabIndex = 7;
+            this.dojoFacts.TabIndex = 8;
             // 
             // label6
             // 
@@ -170,7 +172,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(247, 87);
+            this.label7.Location = new System.Drawing.Point(292, 87);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 25);
             this.label7.TabIndex = 17;
@@ -178,7 +180,7 @@
             // 
             // password
             // 
-            this.password.Location = new System.Drawing.Point(251, 115);
+            this.password.Location = new System.Drawing.Point(297, 115);
             this.password.Name = "password";
             this.password.PasswordChar = '*';
             this.password.Size = new System.Drawing.Size(182, 20);
@@ -191,12 +193,11 @@
             this.formTitleBar1.ForeColor = System.Drawing.Color.White;
             this.formTitleBar1.Location = new System.Drawing.Point(0, 0);
             this.formTitleBar1.Name = "formTitleBar1";
-            this.formTitleBar1.Size = new System.Drawing.Size(509, 62);
+            this.formTitleBar1.Size = new System.Drawing.Size(541, 62);
             this.formTitleBar1.TabIndex = 18;
             this.formTitleBar1.TitleDescription = "Post in blog what we\'ve done today";
             this.formTitleBar1.TitleIcon = "";
             this.formTitleBar1.TitleText = "Post it!";
-            this.formTitleBar1.Load += new System.EventHandler(this.formTitleBar1_Load);
             // 
             // CloseButton
             // 
@@ -206,20 +207,40 @@
             this.CloseButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.CloseButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseButton.Location = new System.Drawing.Point(31, 575);
+            this.CloseButton.Location = new System.Drawing.Point(47, 575);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(113, 51);
-            this.CloseButton.TabIndex = 19;
+            this.CloseButton.TabIndex = 9;
             this.CloseButton.Text = "Leave me alone!";
             this.CloseButton.UseVisualStyleBackColor = true;
+            // 
+            // urlDestiny
+            // 
+            this.urlDestiny.Location = new System.Drawing.Point(297, 181);
+            this.urlDestiny.Name = "urlDestiny";
+            this.urlDestiny.Size = new System.Drawing.Size(181, 20);
+            this.urlDestiny.TabIndex = 4;
+            this.urlDestiny.Text = "dojorio.wordpress.com";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(292, 153);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(192, 25);
+            this.label8.TabIndex = 21;
+            this.label8.Text = "Url destino do post";
             // 
             // PostResumeDojoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(509, 688);
+            this.ClientSize = new System.Drawing.Size(541, 688);
             this.ControlBox = false;
+            this.Controls.Add(this.urlDestiny);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.formTitleBar1);
             this.Controls.Add(this.password);
@@ -264,5 +285,7 @@
         private System.Windows.Forms.TextBox password;
         private FormTitleBar formTitleBar1;
         private System.Windows.Forms.Button CloseButton;
+        private System.Windows.Forms.TextBox urlDestiny;
+        private System.Windows.Forms.Label label8;
     }
 }

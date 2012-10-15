@@ -30,8 +30,9 @@ namespace DojoTimer.Helpers
         public bool PlayTestResultSound { get; set; }
         public string[] Participants { get; set; }
         public string CommitScript { get; set; }
-
         public string WorkingDirectory { get; set; }
+
+        private Dictionary<DateTime, List<string>> ParticipantsDay;
 
         public Keys ShortcutKey { get { return Shortcut & Keys.KeyCode; } }
 
@@ -64,6 +65,7 @@ namespace DojoTimer.Helpers
             CommitScript = string.Format("echo %date% %time% *** %~1 and %~2 >> dojo.log", myDir);
             Participants = new string[0];
             WorkingDirectory = Environment.CurrentDirectory;
+            ParticipantsDay = new Dictionary<DateTime, List<string>>();
         }
 
         [field:NonSerialized]
@@ -104,6 +106,37 @@ namespace DojoTimer.Helpers
             catch { }
         }
 
+        public Dictionary<DateTime, List<string>> GetParticipantsAllDay()
+        {
+            return this.ParticipantsDay;
+        }
+
+        public List<string> GetNameParticipantsDay(DateTime dayDojo)
+        {
+    
+            return this.ParticipantsDay[dayDojo];
+        }
+
+
+        public void AddParticipantsDay(string participantName)
+        {
+ 
+            List<string> participants;
+
+            if (!ParticipantsDay.TryGetValue(DateTime.Today, out participants))
+            {
+                ParticipantsDay[DateTime.Today] = participants = new List<string> () ;
+            }
+
+
+            if (!participants.Contains(participantName))
+            {
+
+                participants.Add(participantName);
+            }
+            
+    
+        }
         public void MarkFinish(bool commit, string person1, string person2)
         {
             if (commit)
@@ -129,4 +162,5 @@ namespace DojoTimer.Helpers
 
 
     }
+
 }

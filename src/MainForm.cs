@@ -117,7 +117,7 @@ namespace DojoTimer
 
         private PostResumeDojoForm showPostResume()
         {
-            var formPostResume = new PostResumeDojoForm();
+            var formPostResume = new PostResumeDojoForm(options);
             scheme.ApplyTo(formPostResume);
             bool topmost = this.TopMost;
             this.TopMost = false;
