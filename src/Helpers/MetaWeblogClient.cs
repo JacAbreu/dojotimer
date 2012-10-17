@@ -38,7 +38,7 @@ namespace DojoTimer.Helpers
             post.description = description;
             post.title = title;
 
-            newPost("0", userid, password, post, true);
+            post.postid = newPost("0", userid, password, post, true);
 
         }
 

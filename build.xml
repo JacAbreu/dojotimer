@@ -1,16 +1,16 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build"> 
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Integrate"> 
   <PropertyGroup> 
     <BuildDir>$(MSBuildProjectDirectory)\build\</BuildDir>
 	<PackageDir>$(MSBuildProjectDirectory)\pkg\</PackageDir>
 	
     <SourceDir>$(MSBuildProjectDirectory)\src\</SourceDir>
+	<LibDir>$(MSBuildProjectDirectory)\lib\</LibDir>
     <Configuration>Release</Configuration>
     <Platform>x86</Platform>
   </PropertyGroup>
-
+  
   <Import Project="util\msbuild\MSBuild.Community.Tasks.Targets"/>
 
-  
   <ItemGroup>
     <SolutionFile Include="$(SourceDir)\DojoTimer.sln" />
   </ItemGroup>
@@ -31,10 +31,19 @@
   
   <Target Name="Package" DependsOnTargets="Rebuild">
 	<ItemGroup>
-      <ZipFiles Include="$(BuildDir)dojotimer.exe"/>
+      <MergeFiles Include="$(BuildDir)dojotimer.exe"/>
+      <MergeFiles Include="$(BuildDir)CookComputing.XmlRpcV2.dll"/>
     </ItemGroup>
-
-	<Copy SourceFiles ="@(ZipFiles)" DestinationFolder="$(PackageDir)" />
-    <Zip Files="@(ZipFiles)" ZipFileName="$(PackageDir)\dojotimer.zip" WorkingDirectory="$(BuildDir)" />
+	
+	<MakeDir Directories="$(BuildDir)\temp"/>
+	<ILMerge OutputFile="$(BuildDir)\temp\dojotimer.exe"
+      InputAssemblies="@(MergeFiles)"
+      ToolPath="util\ilmerge"
+      LogFile="" 
+       />
+	<Copy SourceFiles ="$(BuildDir)\temp\dojotimer.exe" DestinationFolder="$(PackageDir)" />
+    <Zip Files="$(BuildDir)\temp\dojotimer.exe" ZipFileName="$(PackageDir)\dojotimer.zip" WorkingDirectory="$(BuildDir)\temp" />
+  </Target>
+  <Target Name="Integrate" DependsOnTargets="Package">
   </Target>
 </Project>
